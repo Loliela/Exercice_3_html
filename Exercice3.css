@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500&family=Montserrat:wght@400;700&family=Raleway:wght@400;500;700&display=swap');
+
+:root {
+    --primary-color: #F5614D;
+    --gradient-color: #EF7944;
+    --primary-font: Montserrat, sans-serif;
+    --secondary-font: Raleway, serif;
+    --medium-gap: 32px;
+    --large-gap: 64px;
+    --transition-duration: 0.2s;
+}
+
+*{
+    margin : 0;
+    font-size: 12px;
+}
+
+#global
+{
+    background-image: url("Exercice 3/img/introduction_background.jpg");
+    height : 500px;
+    background-position: left 52% center;           /*positionnement de l'image*/
+    background-size: 350%;          /*l'image est affiché à 350% pour la vue en mobile, donc on n'en voit pas la totalité*/
+    display: flex;
+    flex-direction: column;         /*les block contenus dans global s'affichrons les uns en dessous des autres. Nécessaire si on veut centrer le contenu des blocks par la suite*/
+    align-items: center;            /*permet d'aligner les block au centre horizontal*/
+    background-repeat: no-repeat;
+    justify-content: center;
+}
+
+#global #discounts{
+    position: relative;
+}
+
+#discounts h1
+{
+    height: 150px;
+    margin: 0;
+    padding: 0 64px;
+    width: fit-content;
+    display: flex;
+    align-items: center;            /*Permet d'aligner le titre au centre vertical de discounts*/
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    text-align: center;             /*centre le texte lorsque celui-ci est contraint de se placer sur 2 lignes car trop grand*/
+    
+}
+
+#whats-new
+{
+    background-color: transparent;
+    color: white;
+    border: 3px solid white;
+}
+
+#purchase
+{
+    color: white;
+    background-color: #F5614D;
+    border: 3px solid white;
+    border: none;
+    
+}
+
+button
+{
+    padding: 0 64px;
+    text-transform: uppercase;
+    height: 75px;                   /*ajuster la hauteur*/
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 40px;
+    cursor: pointer;                /*petite main au passage sur le bouton*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+#button-cont
+{
+    display: flex;
+    flex-direction: column;         /*permet d'avoir les boutons les uns au dessus des autres*/
+    align-items: center;            /*pour placer les boutons au centre de la div : ici, vu qu'ils prennent toute la dive, ce n'est pas forcément utile*/
+    row-gap: 32px;                  /*permet d'avoir l'espace entre les boutons*/
+}
+
+#button-cont >*  /*pour tout les premiers enfants de button-cont = pour tous les button*/
+{
+    width: 100%;                    /*permet d'adapté le bouton whats news à la div button-cont, qui elle s'adapte à la taille du bouton purchase car il est plus large (et vice-versa si c'était l'inverse): les deux boutons sont donc de même taille*/
+}
+#discounts
+{
+    margin-bottom: 64px;            /*séparation entre les boutons et le titre (le titre est contenu dans la div discounts)*/
+}
+.reverse
+{
+    transform: scaleX(-1);              /*permet d'inversé l'icon sur l'axe x*/
+}
+
+#discounts #subtitle 
+{
+    height: 75px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+}
+
+#discounts #subtitle> p
+{
+    color:white;
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 700;
+    display: flex;
+    margin: 0 32px;
+    font-size: 20px;
+    min-width: fit-content;         /*la largeur maximal est égal au contenu (longueur du texte)*/
+    width: 100%;
+    justify-content: center;
+    position:relative;
+    top:-20px;
+    opacity: 0;
+}
+
+#subtitle> div:first-child
+{
+    display: flex;
+    border-top: 3px solid white;
+    width: 100%;
+    border-top-left-radius: 75px;
+    position: relative;
+    opacity:0;
+}
+
+#subtitle> div:last-child
+{
+    border-top: 3px solid white;
+    width: 100%;
+    border-top-right-radius: 75px;
+    position: relative;
+    opacity: 0;
+}
+
+.badge
+{
+    color:white;
+    font-size: 15px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    width: 75px;
+    height: 75px;
+    top:-15px;
+    right: -15px;
+    background:linear-gradient(45deg, #F5614D, #EF7944);
+    text-shadow: 0 4px 8px rgb(0 0 0 / 15%);
+    display: flex;
+    align-items: center;                /*centre verticalement le texte*/
+    justify-content: center;
+    border-radius: 40px;
+    position:absolute;                  /*fait une sorte de séparation avec le reste, l'élément est seul*/
+    opacity:0;
+}
+
+/*tablet*/
+
+@media screen and (min-width: 768px)
+{
+    #global
+    {
+        height:600px;
+        background-size: 250%;
+    }
+
+    #discounts h1
+    {
+        border-bottom: 3px solid white;
+        border-right: 3px solid white;
+        border-left: 3px solid white;
+        border-radius: 75px;
+    }
+
+    #discounts #subtitle >p
+    {
+        opacity: 1;
+    }
+
+    #discounts #subtitle >div:first-child
+    {
+        opacity: 1;
+    }
+
+    #discounts #subtitle >div:last-child
+    {
+        opacity: 1;
+    }
+
+    .badge{
+        opacity:1;
+    }
+}
+
+/*desktop*/
+
+@media screen and (min-width: 1440px)
+{
+    #global
+    {
+        height:850px;
+        background-size: 250%;
+    }
+}
